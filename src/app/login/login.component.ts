@@ -1,0 +1,37 @@
+import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { AuthService } from '../auth/auth.service';
+
+@Component({
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss'],
+})
+export class LoginComponent implements OnInit {
+  // faLock = faLock;
+  loginForm = new FormGroup({
+    email: new FormControl(''),
+    password: new FormControl(''),
+  });
+  constructor(private auth: AuthService, private router: Router) {}
+
+  ngOnInit(): void {
+    if (this.auth.isLoggedIn()) {
+      this.router.navigate(['product-list']);
+    }
+  }
+  onSubmit(): void {
+    if (this.loginForm.valid) {
+      this.auth.login(this.loginForm.value).subscribe(
+        (result) => {
+          console.log(result);
+          this.router.navigate(['/product-list']);
+        },
+        (err: Error) => {
+          alert(err.message);
+        }
+      );
+    }
+  }
+}

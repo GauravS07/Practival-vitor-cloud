@@ -31,7 +31,11 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "src/styles.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.css",
+              "node_modules/ngx-spinner/animations/ball-atom.css",
+              "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": []
           },
@@ -99,6 +103,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -107,5 +112,7 @@
       }
     }
   },
-  "defaultProject": "Practival-vitor-cloud"
+  "cli": {
+    "analytics": "fd749d6a-048e-436b-85a7-109c3335710e"
+  }
 }

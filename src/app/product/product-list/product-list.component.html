@@ -1,0 +1,25 @@
+<app-header></app-header>
+<div class="cardList" style="margin-top: 50px; margin-bottom:50px;">
+  <section *ngIf="isLoaded">
+    <h2 class="text-center font-italic mb-3">Search Product</h2>
+    <div class="container py-5">
+      <input [(ngModel)]='term' class="form-control w-50 m-auto" type="search" placeholder="Search Products">
+    </div>
+  </section>
+</div>
+
+<div class="card-one" *ngFor="let product of productList | search:term ; let i = index">
+  <div class="card" style="width: 15rem;" >
+    <img class="card-img-top" src="{{product.image}}" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{product.title}}</h5>
+      <p class="card-text">{{product.price}}</p>  
+      <p class="card-text">{{product.description}}</p>
+      <button type="button" class="btn btn-primary" (click)="addToCart(product)">Add To Cart</button>
+    </div>
+  </div>
+</div>
+
+<div>
+    <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="ball-atom" [fullScreen]="true"><p style="color: white" > Loading... </p></ngx-spinner>
+</div>

@@ -1,0 +1,21 @@
+<app-header></app-header>
+
+<div class="container my-5">
+    <h2 class="text-center font-italic my-3">Cart</h2>
+    <div class="col-md-9  pro my-5 py-3" *ngFor="let product of localProducts">
+        <div class="row">
+            <div class="col-md-5">
+                <img height="500px" width="200px" src="{{product.image}}" class="w-100 border-rounded" />
+            </div>
+            <div class="col-md-7">
+                <h6 class="text-left my-2">{{product.title}}</h6>
+                <span class="text-muted "> {{product.description}} </span>
+                <span class="badge badge-info p-1 ml-1 mr-2 text-white spanCat">{{product.category}}</span>
+                <span class="badge badge-warning p-1 price text-white">{{product.price}}</span>
+                <br />
+                <br />
+                <a class="btn btn-primary mb-5 mr-3" (click)="deleteItem(product)">Remove From Cart</a>
+            </div>
+        </div>
+    </div>
+</div>
